@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 회원정보 처리 SQL -->
+<mapper namespace="com.lecodi.foru.mapper.MemberMapper">
+
+	<!-- 회원 가입 -->
+	<insert id="joinMember" parameterType="member">
+		insert into
+			tbl_member(
+				userid
+				,password
+				,name
+				,birth
+				,phonenumber1
+				,phonenumber2
+				,phonenumber3
+				,postcode
+				,address_primary
+				,address_detail
+				,email_id
+				,email_domain		
+			)values(
+				#{userid}
+				,#{password}
+				,#{name}
+				,#{birth}
+				,#{phonenumber1}
+				,#{phonenumber2}
+				,#{phonenumber3}
+				,#{postcode}
+				,#{address_primary}
+				,#{address_detail}
+				,#{email_id}
+				,#{email_domain}	
+			)
+	</insert>
+	
+	<!-- 로그인 -->
+	<select id="login" parameterType="String" resultType="String">
+		select password from tbl_member where userid = #{userid}
+	</select>
+	
+	
+</mapper>
