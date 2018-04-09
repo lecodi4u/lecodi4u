@@ -10,4 +10,6 @@ public interface MemberMapper {
 	// 로그인
 	String login(String userid);
 
+	String checkStatus(String userid);
+
 }

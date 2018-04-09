@@ -66,5 +66,21 @@ public class MemberDAO {
 			}
 			return password;
 		}
+		
+		/**
+		 * 탈퇴이력확인
+		 * @param userid
+		 * @return
+		 */
+		public String checkStatus(String userid) {
+			String status = null;
+			try{
+				MemberMapper mapper = sqlsession.getMapper(MemberMapper.class);
+				status = mapper.checkStatus(userid);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			return status;
+		}
 
 }
