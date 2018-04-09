@@ -88,55 +88,18 @@ button {
 </script>
 
 <script type="text/javascript">
-	/* 
-	
-		아이디중복검사
-	*/
-	var duplicate = false;
-	$(document).ready(function() {
-		$('#checkbtn').on('click', function() {
-			//alert($('#m_id').val());
-			$.ajax({
-				type : 'POST',
-				url : 'duplicate',	
-				data : {
-					"userid" : $('#userid').val()
-				},
-				success : function(data) {
-					if ($.trim(data) == 0) {
-						//$('#checkMsg').html('<p style="color:blue;width:100px;">사용가능</p>');
-						alert("사용 가능한 아이디 입니다!");
-						duplicate = true;
-					} else if ($.trim(data) == "blank") {
-						alert("아이디에 공백은 불가합니다!");
-						duplicate = false;
-					} else if ($.trim(data) == "@") {
-						alert("아이디에 특수문자@는 불가합니다!");
-						duplicate = false;
-					} else {
-						//$('#checkMsg').html('<p style="color:red;width:100px;">사용불가능</p>');
-						alert("사용 불가능한 아이디 입니다!");
-						duplicate = false;
-					}
-				}
-			}); //end ajax   
-		}); //end on    
-	});
-	function beforeSubmit() {
-		if (duplicate == false) {
-			alert("아이디 중복확인을 해주세요!");
-			return false;
-		} else if (duplicate == true) {
 
-			if ($('font[name=check]').text() == "암호일치") {
-				location.href="joinConfirm";
-				return true;
-			} else {
-				alert("암호가 일치하지 않습니다! 확인해주세요!")
-				return false;
-			}
+	function beforeSubmit() {
+
+		if ($('font[name=check]').text() == "암호일치") {
+			location.href="joinConfirm";
+			return true;
+		} else {
+			alert("암호가 일치하지 않습니다! 확인해주세요!")
+			return false;
 		}
 	}
+	 
 	
 	/*  
 	
@@ -161,7 +124,7 @@ button {
 <head>
 	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Le Codi - Join</title>
+	<title>Le Codi - MypageUpdate</title>
 	
 	<!-- 조인 ajax불러오기 -->
 	<script
@@ -171,81 +134,73 @@ button {
 </head>
 <body>
 	<div class="wraper">
-		<%-- <jsp:include page="header.jsp"></jsp:include> 헤더--%>
-		<form action="join" method="post"
+		<%-- <jsp:include page="header.jsp"></jsp:include> --%>
+		<form action="updateMember" method="post"
 			onsubmit="return beforeSubmit()">
-			<div class="title"></div>
-			<table class="joinForm">
-				<tr>
-					<th class="title" colspan="2"><b>회원가입 정보입력</b> <label>회원가입시 필요한 정보를 입력하세요</label></th>
+			<table class="updateForm">
+				<tr style="height: 50px;">
+					<th class="title" colspan="2"><b>회원정보 수정입력</b> 
+						<label>회원정보 수정시 필요한 정보를 입력하세요</label>
+					</th>
+					<th>
+						<!--  
+						<input type="hidden" name="userid" value=${Member.userid }><!-- 프라이머리키를 지정해준곳 
+						-->
+					</th>
 				</tr>
 				<tr>
+					<td>이름</td>
 					<td>
-						이름
-					</td>
-					<td>
-						<input type="text" name="name" required>
+						<input type="text" name="name" value="${Member.name }" readonly="readonly">
 					</td>
 				</tr>
 				<tr>
+					<td>아이디</td>
 					<td>
-						아이디
-					</td>
-					<td>
-						<input type="text" name="userid" id="userid" required>
+						<input type="text" name="userid" id="userid" value="${Member.userid }" readonly="readonly"> 
 						<label>공백 없는 영문, 숫자 포함 6-20자</label>
 					</td>
-					<td>
-						<a id="checkbtn"><button>중복확인</button></a>
-					</td>
-					
 				</tr>
 				<tr>
-					<td>
-						비밀번호
-					</td>
+					<td>비밀번호</td>
 					<td>
 						<input type="password" name="password" id="password" required> 
 						<label>공백 없는 영문, 숫자 포함 6-20자</label>
 					</td>
 				</tr>
 				<tr>
+					<td>비밀번호 확인</td>
 					<td>
-						비밀번호 확인
-					</td>
-					<td>
-						<input type="password" id="pass_ck" required> <label>비밀번호 확인을 위해 한번 더 입력하세요</label> <span></span>
-					</td>
+						<input type="password" id="pass_ck" required> 
+						<label>비밀번호 확인을 위해 한번 더 입력하세요</label> <span></span></td>
 					<td>
 						<font name="check" size="2" color="red"></font>
 					</td>
 				</tr>
 				<tr>
-					<td rowspan="3">
-						주소
-					</td>
+					<td rowspan="3">주소</td>
 					<td>
-						<input type="text" id="sample2_postcode" placeholder="우편번호" name="postcode" readonly required>
+						<input type="text" id="sample2_postcode"
+						value="${Member.postcode }"
+						placeholder="우편번호" name="postcode" readonly required> 
 						<input type="button" onclick="sample2_execDaumPostcode()" value="우편번호 찾기"><br>
 					</td>
 				</tr>
 				<tr>
-					<td>
-						<input type="text" name="address_primary"id="sample2_address" class="address" placeholder="기본주소" readonly>
-					</td>
+					<td><input type="text" name="address_primary"
+						value="${Member.address_primary }" id="sample2_address"
+						class="address" placeholder="기본주소" readonly></td>
 				</tr>
 				<tr>
-					<td>
-						<input type="text" name="address_detail" class="address" placeholder="상세주소" required>
-					</td>
+					<td><input type="text" name="address_detail" class="address"
+						value="${Member.address_detail }" placeholder="상세주소"
+						required></td>
 				</tr>
 				<tr>
+					<td>이메일</td>
 					<td>
-						이메일
-					</td>
-					<td>
-						<input type="text" name="email_id" class="email_Id"required> @ 
-						<input type="text" name="email_domain" class="email_Domain" required> 
+						<input type="text" name="email_id" class="email_Id"value="${Member.email_id }" required> @ 
+						<input type="text" name="email_domain" value="${Member.email_domain }" class="email_Domain" required> 
 						<select style="width: 100px; margin-right: 10px" name="selectEmail" id="selectEmail">
 							<option value="1" selected>직접입력</option>
 							<option value="naver.com">naver.com</option>
@@ -255,44 +210,33 @@ button {
 							<option value="dreamwiz.com">dreamwiz.com</option>
 							<option value="gmail.com">gmail.com</option>
 							<option value="paran.com">paran.com</option>
-						</select>
+					</select></td>
+				</tr>
+				<tr>
+					<td>휴대폰번호</td>
+					<td>
+					<input type="text" name="phonenumber1" class="phoneNum" value="${Member.phonenumber1 }" required> - 
+					<input type="text" name="phonenumber2" class="phoneNum" value="${Member.phonenumber2 }" required> - 
+					<input type="text" name="phonenumber3" class="phoneNum" value="${Member.phonenumber3 }" required>
 					</td>
 				</tr>
 				<tr>
+					<td>생년월일</td>
 					<td>
-						휴대폰번호
-					</td>
-					<td>
-						<input type="text" name="phonenumber1" class="phoneNum"required>
-						 - <input type="text" name="phonenumber2" class="phoneNum" required>
-						 - <input type="text" name="phonenumber3" class="phoneNum" required>
-					</td>
-				</tr>
-				
-				<tr>
-					<td>
-						생년월일
-       				</td>
-					<td>
-						<input type="text" name="birth" placeholder="yyyy-mm-dd"required>
+						<input type="text" name="birth" placeholder="yyyy-mm-dd" value="${Member.birth }" required>
 					</td>
 				</tr>
 				<tr>
 					<td colspan="2" style="margin: auto;">
-						<button class="submit">가입하기</button> 
-						<a href="javascript:history.go(-2)"><button type="button" class="cancel">취 소</button></a>
+						<button class="submit">수정하기</button> 
+						<a href="../member/mypage">
+							<button type="button" class="cancel">취 소</button>
+						</a>
 					</td>
 				</tr>
 			</table>
 		</form>
-		
-	
-        
-		
-		
-		<%-- <div id="ForFooter">
-			<jsp:include page="footer.jsp"></jsp:include>
-		</div> 	푸터--%>
+		<%-- <jsp:include page="footer.jsp"></jsp:include> --%>
 	</div>
 
 	<!-- 이메일 입력방식 : 직접입력 -->
@@ -312,6 +256,9 @@ button {
 			});
 		});
 	</script>
+
+
+
 
 
 	<!-- iOS에서는 position:fixed 버그가 있음, 적용하는 사이트에 맞게 position:absolute 등을 이용하여 top,left값 조정 필요 -->
@@ -402,4 +349,5 @@ button {
 		}
 	</script>
 </body>
+
 </html>
