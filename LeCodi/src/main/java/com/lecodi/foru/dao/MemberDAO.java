@@ -109,7 +109,6 @@ public class MemberDAO {
 		}
 		
 		/*
-		 * 
 		 * 회원정보 하나 불러오기
 		 * */
 		public Member getMember(String custid) {
@@ -125,6 +124,22 @@ public class MemberDAO {
 			logger.info("회원 정보 검색 종료");
 			
 			return member;
+		}
+
+		/**
+		 * 탈퇴 회원 확인
+		 * @param userid
+		 * @return
+		 */
+		public String checkStatus(String userid) {
+			String status = null;
+			try{
+				MemberMapper mapper = sqlsession.getMapper(MemberMapper.class);
+				status = mapper.checkStatus(userid);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			return status;
 		}
 
 		

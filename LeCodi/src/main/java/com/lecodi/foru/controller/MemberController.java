@@ -96,9 +96,6 @@ public class MemberController {
 	}
 	
 	
-	
-	
-	
 	/**
 	 * 동의 화면으로 연결
 	 * @return argreePage
@@ -124,9 +121,6 @@ public class MemberController {
 		
 		return "member/joinForm";
 	}
-	
-	
-
 
 	
 	/**
@@ -149,7 +143,6 @@ public class MemberController {
 		else {
 			return "1";			
 		}
-
 	}
 	
 	
@@ -199,25 +192,25 @@ public class MemberController {
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public String login(String userid, String password, HttpSession session){
 		
-		String checkPass = mdao.login(userid);
+		String status = mdao.checkStatus(userid);
 		
-		logger.info("---> Login Member Start");
-		if(checkPass == null){	//아이디X
-			session.setAttribute("result", "아이디 X");
-			return "redirect:../member/login";
+		if(status == null){		//없는 아이디
+			session.setAttribute("result", "없는 회원");
+		}else if(status.equals("N")){	//탈퇴한 유저
+			session.setAttribute("result", "탈퇴한 회원");
+		}else if(status.equals("Y")){	//현재 유저
+			
+			String checkPass = mdao.login(userid);
+			
+			if(checkPass.equals(password)){
+				session.setAttribute("loginId", userid);
+				return "redirect:../";
+			}else{	//비밀번호 일치X
+				session.setAttribute("result", "비밀번호 오류");
+			}
 		}
-		
-		if(checkPass.equals(password)){
-			session.setAttribute("loginId", userid);
-			return "redirect:../";
-		}else{	//비밀번호 일치X
-			session.setAttribute("result", "비밀번호 오류");
-		}
-		
 		return "redirect:../member/login";
 	}
-	
-
 	
 	
 	/**

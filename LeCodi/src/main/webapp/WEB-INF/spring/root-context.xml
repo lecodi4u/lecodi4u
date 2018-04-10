@@ -44,20 +44,20 @@
    </bean>     
    
    <!-- 메일보내기 -->
-	<bean id="mailSender" class = "org.springframework.mail.javamail.JavaMailSenderImpl">
-		<property name="host" value="smtp.gmail.com" />
-		<property name="port" value="587" />
-		<property name="username" value="lecodi3@gmail.com" />
-		<property name="password" value="lecodi123" />
-		<!-- 계정을 하나 만들어서 구글메일에 있는 서버를 만들어서 해당 회원에게 메일을 하나씩 보내주는 개념 -->
-		
-	<property name="javaMailProperties">
-		<props>
-			<prop key="mail.transport.protocol">smtp</prop>
-			<prop key="mail.smtp.auth">true</prop>
-			<prop key="mail.smtp.starttls.enable">true</prop>
-			<prop key="mail.debug">true</prop>
-		</props>
-	</property>
-	</bean> 
+   <bean id="mailSender" class = "org.springframework.mail.javamail.JavaMailSenderImpl">
+      <property name="host" value="smtp.gmail.com" />
+      <property name="port" value="587" />
+      <property name="username" value="lecodi3@gmail.com" />
+      <property name="password" value="lecodi123" />
+      <!-- 계정을 하나 만들어서 구글메일에 있는 서버를 만들어서 해당 회원에게 메일을 하나씩 보내주는 개념 -->
+      
+   <property name="javaMailProperties">
+      <props>
+         <prop key="mail.transport.protocol">smtp</prop>
+         <prop key="mail.smtp.auth">true</prop>
+         <prop key="mail.smtp.starttls.enable">true</prop>
+         <prop key="mail.debug">true</prop>
+      </props>
+   </property>
+   </bean> 
 </beans>
