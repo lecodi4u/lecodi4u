@@ -20,7 +20,28 @@
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" /> 
 <!-- 3.폰트아이콘용 CSS --> 
 <style type="text/css"> 
+a:link {
+    color: black;
+     text-decoration: none;
+}
 
+/* visited link */
+a:visited {
+    color: black;
+     text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+    color: black;
+     text-decoration: none;
+}
+
+/* selected link */
+a:active {
+    color: blue;
+     text-decoration: none;
+}
 
 .navbar-toggler{
 	border-bottom: none;
@@ -137,18 +158,17 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
 		
-  	 	 <!-- <li><a href="board/csc">Customer Center</a> </li> -->
+  	 	 
   	 	 <li><a class = "main_category" href="<c:url value= '../board/csc'/>">Customer Center</a> </li>
-  	 	 <!-- <li><a href="member/join">Join</a></li> -->
+  	 	
   	 	<li><a class = "main_category" href="<c:url value= '../member/agree'/>">Join</a> </li>
-  	 	<!-- <li><a href="member/login">Login</a></li>  -->
+  	 
   	 	<li><a class = "main_category" href="<c:url value= '../member/login'/>">Login</a> </li>
-  	 	<!-- <li><a href="cart">Cart</a></li>  -->
-		<li><a class = "main_category" href="<c:url value= '../cart'/>">cart</a> </li>
+  	 	
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#" class = "main_category"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
-        <li><a href="#" class = "main_category"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+        <li><a href="<c:url value= '../codiTool'/>" class = "main_category"><span class="glyphicon glyphicon-user"></span> Codi Tool</a></li>
+        <li><a href="<c:url value= '../cart/cartPage'/>" class = "main_category"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
       </ul>
     </div>
   </nav>

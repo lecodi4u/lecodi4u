@@ -33,11 +33,11 @@
 <body>
 <div>	
 <footer class="container-fluid text-center">
-  <p class = "footer_font">Le Codi</p> 
-  <a class = "footer_font">회사소개 | </a>  
+<p class = "footer_font"style="font-size: x-large;">Le Codi</p> 
+  <!--  <a class = "footer_font">회사소개 | </a>  
   <a class = "footer_font">공지사항 | </a>  
   <a class = "footer_font">이용약관 | </a>  
-  <a class = "footer_font">개인정보취급방침 | </a>  
+  <a class = "footer_font">개인정보취급방침 | </a>   -->
   
  
 

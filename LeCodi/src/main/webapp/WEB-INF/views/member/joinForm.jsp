@@ -1,92 +1,134 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Hi+Melody|Poor+Story" rel="stylesheet">
 <style>
-* {
-	height: 100%;
-	width: 100%;
-	margin: 0px;
-	padding: 0px;
+.postcode {
+	width: 80px;
+  border: none; outline: none;
+  
+  background-color: #FFA69E;
+  color: #EFE9AE;
+  
+  position: relative;
+
+  box-shadow: 1px 2px 0px #B5838D,
+              -1px 2px 0px #B5838D;
+ 
+  letter-spacing: 5px;
+  text-shadow: 1px 1px 2px #B5838D;
 }
 
-.wraper {
-	position: relative; width : 1200px;
-	height: auto;
-	padding: 10px;
-	margin: auto;
-	width: 1200px;
-}
-#ForFooter{
-	width: 1200px;
-	height: 400px;
+.duplicatecheck {
+  width: 80px;
+  border: none; outline: none;
+  
+  background-color: #FFA69E;
+  color: #EFE9AE;
+  
+  position: relative;
+
+  box-shadow: 1px 2px 0px #B5838D,
+              -1px 2px 0px #B5838D;
+ 
+  letter-spacing: 5px;
+  text-shadow: 1px 1px 2px #B5838D;
 }
 
-.title>b {
-	font-size: 23px;
+form{
+	font-family: 'Poor Story', cursive;
 }
 
-label {
-	font-size: 10px;
+ .joinForm{
+    margin-left:auto; 
+    margin-right:auto;
+  }
+
+
+input[type="text"], input[type="password"]{
+	font-family: 'Poor Story', cursive;
+}
+.submit {
+  width: 100px;
+  padding: 10px;
+  border-radius: 25px;
+  border: none; outline: none;
+  
+  background-color: #FFA69E;
+  color: #EFE9AE;
+  
+  position: relative;
+
+  font-size:110%;
+  box-shadow: 1px 2px 0px #B5838D,
+              -1px 2px 0px #B5838D;
+  transition: all .5s ease-in-out;
+  letter-spacing: 5px;
+  text-shadow: 1px 1px 2px #B5838D;
+}
+.submit :AFTER{
+  content: " ";
+  position: absolute;
+  top: -48%; left: 9%;
+
+    border-bottom: 100px solid #fff;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-radius: 60%;
+  
+  transform: rotate(90deg);
+  
+}
+.submit :HOVER{
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #B5838D;
 }
 
-td:first-child {
-	width: 25%;
+.cancel {
+  width: 100px;
+  padding: 10px;
+  border-radius: 25px;
+  border: none; outline: none;
+  
+  background-color: #FFA69E;
+  color: #EFE9AE;
+  
+  position: relative;
+
+  font-size:110%;
+  box-shadow: 1px 2px 0px #B5838D,
+              -1px 2px 0px #B5838D;
+  transition: all .5s ease-in-out;
+  letter-spacing: 5px;
+  text-shadow: 1px 1px 2px #B5838D;
 }
 
-td {
-	/* border:1px red solid; */
-	padding-top: 5px;
+.cancel :AFTER{
+  content: " ";
+  position: absolute;
+  top: -48%; left: 9%;
+
+    border-bottom: 100px solid #fff;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-radius: 60%;
+  
+  transform: rotate(90deg);
+  
+}
+.cancel :HOVER{
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #B5838D;
 }
 
-input {
-	height: 25px;
-	text-align: center;
-	width: 150px;
-}
 
-.address {
-	width: 388px;
-	text-align: left;
-}
 
-.email_Id {
-	width: 100px;
-}
-
-select {
-	height: 28px;
-	padding: 3px;
-}
-
-.phoneNum {
-	width: 100px;
-}
-
-table {
-	width: 1100px;
-}
-
-button {
-	width: 100px;
-	height: 40px;
-	float: right;
-	margin-left: 10px;
-}
-
-.search_address {
-	width: 20%;
-}
 </style>
-
-<script>
-		//가입신청 후 서버에서의 오류로 현재 페이지로 되돌아온 경우 오류 메시지를 출력
-		<c:if test="${errorMsg != null}">alert('${errorMsg}');</c:if>
-</script>
-
 <script type="text/javascript">
 	/* 
 	
@@ -129,7 +171,7 @@ button {
 		} else if (duplicate == true) {
 
 			if ($('font[name=check]').text() == "암호일치") {
-				location.href="joinConfirm";
+				location.replace("./signConfirm.jsp");
 				return true;
 			} else {
 				alert("암호가 일치하지 않습니다! 확인해주세요!")
@@ -158,20 +200,25 @@ button {
 		}); //#chpass.keyup
 	});
 </script>
-<head>
-	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Le Codi - Join</title>
-	
-	<!-- 조인 ajax불러오기 -->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-	</script>
+	<head>
+		<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Le Codi - Join</title>
+		<jsp:include page="../header.jsp"></jsp:include>
+		<!-- 조인 ajax불러오기 -->
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+		</script>
 
-</head>
+	</head>
 <body>
+
+<div>
+
+</div>
+
 	<div class="wraper">
-		<%-- <jsp:include page="header.jsp"></jsp:include> 헤더--%>
+		
 		<form action="join" method="post"
 			onsubmit="return beforeSubmit()">
 			<div class="title"></div>
@@ -194,11 +241,8 @@ button {
 					<td>
 						<input type="text" name="userid" id="userid" required>
 						<label>공백 없는 영문, 숫자 포함 6-20자</label>
-					</td>
-					<td>
-						<a id="checkbtn"><button>중복확인</button></a>
-					</td>
-					
+						<br><a id="checkbtn"><button class ="duplicatecheck">중복확인</button></a>
+					</td>	
 				</tr>
 				<tr>
 					<td>
@@ -226,7 +270,7 @@ button {
 					</td>
 					<td>
 						<input type="text" id="sample2_postcode" placeholder="우편번호" name="postcode" readonly required>
-						<input type="button" onclick="sample2_execDaumPostcode()" value="우편번호 찾기"><br>
+						<br><input type="button" class ="postcode" onclick="sample2_execDaumPostcode()" value="우편번호 찾기"><br>
 					</td>
 				</tr>
 				<tr>
@@ -272,28 +316,24 @@ button {
 				<tr>
 					<td>
 						생년월일
-       				</td>
+					</td>
 					<td>
 						<input type="text" name="birth" placeholder="yyyy-mm-dd"required>
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2" style="margin: auto;">
+					<td colspan="2" style="margin: auto;" align="center">
 						<button class="submit">가입하기</button> 
 						<a href="javascript:history.go(-2)"><button type="button" class="cancel">취 소</button></a>
 					</td>
 				</tr>
 			</table>
 		</form>
-		
-	
-        
-		
-		
-		<%-- <div id="ForFooter">
-			<jsp:include page="footer.jsp"></jsp:include>
-		</div> 	푸터--%>
+		<br><br><br><br><br>
 	</div>
+	<div id="ForFooter">
+			<jsp:include page="../footer.jsp"></jsp:include>
+		</div> 	
 
 	<!-- 이메일 입력방식 : 직접입력 -->
 	<script type="text/javascript"
@@ -314,6 +354,9 @@ button {
 	</script>
 
 
+
+
+
 	<!-- iOS에서는 position:fixed 버그가 있음, 적용하는 사이트에 맞게 position:absolute 등을 이용하여 top,left값 조정 필요 -->
 	<div id="layer"
 		style="display: none; position: fixed; overflow: hidden; z-index: 1; -webkit-overflow-scrolling: touch;">
@@ -323,7 +366,7 @@ button {
 			style="cursor: pointer; position: absolute; right: -3px; top: -3px; z-index: 1; width: 5%; height: auto;"
 			onclick="closeDaumPostcode()" alt="닫기 버튼">
 	</div>
-
+	
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 	<script>
 		// 우편번호 찾기 화면을 넣을 element
@@ -400,6 +443,8 @@ button {
 			element_layer.style.top = (((window.innerHeight || document.documentElement.clientHeight) - height) / 2 - borderWidth)
 					+ 'px';
 		}
+	
 	</script>
+	
 </body>
 </html>
