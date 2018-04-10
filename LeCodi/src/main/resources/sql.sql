@@ -184,7 +184,7 @@ create table review(
     ,userid varchar2(20) not null               -- 사용자ID(관리자) fk
     ,inputdate date default sysdate             -- 게시글 등록 날짜
     ,constraint notice_userid_fk foreign key (userid) 
-    references member(userid) on delete cascade
+    references tbl_member(userid) on delete cascade
 );
 
 
