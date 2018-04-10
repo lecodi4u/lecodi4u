@@ -15,13 +15,14 @@ public class Member {				//회원
 	private String email_id;		//이메일
 	private String email_domain;	//이메일 도메인
 	private char m_verify;			//이메일 인증확인
+	private String status;
 	
 	public Member() {
 	}
 
 	public Member(String userid, String password, String name, String birth, String phonenumber1, String phonenumber2,
 			String phonenumber3, int postcode, String address_primary, String address_detail, String email_id,
-			String email_domain, char m_verify) {
+			String email_domain, char m_verify, String status) {
 		super();
 		this.userid = userid;
 		this.password = password;
@@ -36,6 +37,7 @@ public class Member {				//회원
 		this.email_id = email_id;
 		this.email_domain = email_domain;
 		this.m_verify = m_verify;
+		this.status = status;
 	}
 
 	public String getUserid() {
@@ -140,6 +142,14 @@ public class Member {				//회원
 
 	public void setM_verify(char m_verify) {
 		this.m_verify = m_verify;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	@Override

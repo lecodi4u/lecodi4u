@@ -20,6 +20,8 @@ public interface MemberMapper {
 
 	// 
 	/*Member checkDuplicate(Member member);*/
+	
+	String checkStatus(String userid);
 
 
 }
