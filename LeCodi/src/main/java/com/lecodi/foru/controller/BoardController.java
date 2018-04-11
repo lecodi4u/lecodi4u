@@ -85,6 +85,7 @@ public class BoardController {
 	public String bestQuestion(){
 		return "board/bestQuestion";
 	}
+	
 
 }
 
