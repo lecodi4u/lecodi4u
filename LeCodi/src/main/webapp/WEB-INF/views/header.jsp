@@ -167,8 +167,8 @@ a:active {
   	 	
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="<c:url value= '../codiTool'/>" class = "main_category"><span class="glyphicon glyphicon-user"></span> Codi Tool</a></li>
-        <li><a href="<c:url value= '../cart/cartPage'/>" class = "main_category"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+        <li><a href="<c:url value= '../codi'/>" class = "main_category"><span class="glyphicon glyphicon-user"></span> Codi Tool</a></li>
+        <li><a href="<c:url value= '../cart'/>" class = "main_category"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
       </ul>
     </div>
   </nav>
