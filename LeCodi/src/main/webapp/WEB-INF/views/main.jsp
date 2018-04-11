@@ -10,7 +10,6 @@
 <meta name="description" content=""> 
 <meta name="author" content=""> 
 <title>Le Codi</title> 
-
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"> 
  
 <link rel="shortcut icon" href="../../assets/ico/favicon.png"> 
