@@ -20,98 +20,61 @@
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" /> 
 <!-- 3.폰트아이콘용 CSS --> 
 <style type="text/css"> 
-	
+
+
+.navbar-toggler{
+	border-bottom: none;
+	border-top: none;
+	 background-color: Transparent;
+	 border-left: none;
+	 border-right: none;
+		
+}
+
+
+	/*floating menu*/
+ 
+ /**/  	
   /* Add a gray background color and some padding to the footer */
   
   
    /* Remove the jumbotron's default bottom margin */ 
      .jumbotron {
       margin-bottom: 0;
+      padding-top: 0;
       background-color: white;
     } 
-  	
+    
+    /**/
   	 .navbar {
   	  background-color: white;
       margin-bottom: 50px;
-      border-radius: 0;
+      border-style: none;
     }
     a{
     	color: aqua;		
     }
+    .main_category{
+		color: black;
+	}
+	
     .navbar-brand{
     	font-family: 'Chicle', cursive;
 		font-family: 'IBM Plex Mono', monospace;
 		font-family: 'Indie Flower', cursive;
+		font-size: x-large;
+		color: black;
     }
     
 	/*사이드 바 위치*/
-	td, th {
-    vertical-align: middle !important;
-    }
-.left1, .right1 {
-        float:left;
-        height:100vh;
-    }
-    
-.left1 {
-        background: #337ab7;
-        display: inline-block;
-        white-space: nowrap;
-        width: 50px;
-        transition: width 1s ;
-    }
-
-.right1 {
-        background: #fff;
-        width: 350px;
-        transition: width 1s;
-        border-style:solid;
-        border-color:#ccc;
-        border-width:1px;
-    }    
-
-.left1:hover {
-        width: 250px;
-    }    
-    
-.sideitem:hover {
-        background-color:#ccc;
-        }
-        
-.left1 .glyphicon {
-        margin:15px;
-        width:20px;
-        color:#fff;
-    }
-    
-.right1 .glyphicon {
-        color:#a9a9a9;
-    }
-span.glyphicon.glyphicon-refresh{
-    font-size:17px;
-    vertical-align: middle !important;
-    }
-    
-.sideitem {
-        height:50px;
-        overflow:hidden;
-        color:#fff;
-    }
-.title {
-        background-color:#eee;
-        border-style:solid;
-        border-color:#ccc;
-        border-width:1px;
-        box-sizing: border-box;
-    }
-    
-    h1{
+	
+    .webpage_title{
 		font-family: 'Chicle', cursive;
 		font-family: 'IBM Plex Mono', monospace;
 		font-family: 'Indie Flower', cursive;
 	}
 	
-	p{
+	.webpage_subtitle{
 		font-family: 'Chicle', cursive;
 		font-family: 'IBM Plex Mono', monospace;
 		font-family: 'Indie Flower', cursive;
@@ -135,39 +98,65 @@ span.glyphicon.glyphicon-refresh{
   </head>
   
   <body> 
-  	<div class="jumbotron">
+ 
+  
+
+ 
+<!-- foldable header -->
+<div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-inverse p-4">
+      
+     
+      <!-- top menu -->
+  <div class="jumbotron">
   <div class="container text-center">
-    <h1>Le Codi</h1>      
-    <p>DIBS ON THESE CLOTHES</p>
+    <h1 class="webpage_title"><a class ="logo_title" href="<c:url value= '../'/>">Le Codi</a></h1>      
+    <p class ="webpage_subtitle">DIBS ON THESE CLOTHES</p>
   </div>
 </div>
+      <div class="container-fluid">
   
-  <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
+  </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-inverse bg-inverse">
+  <!--  -->
+  
+      <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">Le Codi</a>
+	<a class="navbar-brand" href="#"><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon">Le Codi </span>
+    </button></a>
+      
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-		<li class="active"><a href="">HOME</a></li> 
-  	 	 <li><a href="board/csc">Customer Center</a> </li>
-  	 	 <li><a href="member/join">Join</a></li>
-  	 	<li><a href="member/login">Login</a></li> 
-  	 	<li><a href="cart">Cart</a></li> 
-
+		
+  	 	 <!-- <li><a href="board/csc">Customer Center</a> </li> -->
+  	 	 <li><a class = "main_category" href="<c:url value= '../board/csc'/>">Customer Center</a> </li>
+  	 	 <!-- <li><a href="member/join">Join</a></li> -->
+  	 	<li><a class = "main_category" href="<c:url value= '../member/agree'/>">Join</a> </li>
+  	 	<!-- <li><a href="member/login">Login</a></li>  -->
+  	 	<li><a class = "main_category" href="<c:url value= '../member/login'/>">Login</a> </li>
+  	 	<!-- <li><a href="cart">Cart</a></li>  -->
+		<li><a class = "main_category" href="<c:url value= '../cart'/>">cart</a> </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+        <li><a href="#" class = "main_category"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+        <li><a href="#" class = "main_category"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
       </ul>
     </div>
-  </div>
-</nav>
+  </nav>
+</div>
+
+
+  
+
 	
 
   	 
