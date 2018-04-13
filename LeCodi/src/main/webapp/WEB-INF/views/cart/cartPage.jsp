@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -372,9 +373,34 @@ a:hover {
 }
 	
 	</style>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+	<script src="https://clippingmagic.com/api/v1/ClippingMagic.js" type="text/javascript"></script>
 	<script type="text/javascript">
-	var check = false;
-
+	//이거 뭐였지 
+	$( document ).ready(function() {
+  // Handler for .ready() called.
+	var errorsArray = ClippingMagic.initialize({apiId: 123});
+	if (errorsArray.length > 0) alert("Sorry, your browser is missing some required features: \n\n " + errorsArray.join("\n "));
+	
+	ClippingMagic.edit({
+	    "images" : [ {
+	      "id" : 2345,
+	      "secret" : "image_secret"
+	    }, {
+	      "id" : 2346,
+	      "secret" : "image_secret2"
+	    } ],
+	    "locale" : "en-US"
+	  }, c
+  
+});
+	
+	
+	
+		
+	
+	
+	
 	function changeVal(el) {
 	  var qt = parseFloat(el.parent().children(".qt").html());
 	  var price = parseFloat(el.parent().children(".price").html());
@@ -599,6 +625,8 @@ a:hover {
 
 		</div>
 	</footer>
+	<button onclick="myFunction()">Click me</button>
+	
 		<div style="text-align: center;">
 		<a href="order/orderForm">전체 주문하기</a>
 		<br> 
