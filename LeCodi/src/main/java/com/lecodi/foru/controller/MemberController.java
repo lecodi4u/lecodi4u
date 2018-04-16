@@ -190,8 +190,7 @@ public class MemberController {
 	 * @return main
 	 */
 	@RequestMapping(value = "login", method = RequestMethod.POST)
-<<<<<<< HEAD
-	   public String login(String userid, String password, HttpSession session){
+/*	   public String login(String userid, String password, HttpSession session){
 	      
 	      String status = mdao.checkStatus(userid);
 	      
@@ -214,9 +213,8 @@ public class MemberController {
 	      }
 	      return "redirect:../member/login";
 	   }
-=======
-	public String login(String userid, String password, HttpSession session){
-		
+*/
+	public String login(String userid, String password, HttpSession session){	
 		String status = mdao.checkStatus(userid);
 		
 		if(status == null){		//없는 아이디
@@ -236,7 +234,7 @@ public class MemberController {
 		}
 		return "redirect:../member/login";
 	}
->>>>>>> Yousong
+
 	
 	
 	/**
