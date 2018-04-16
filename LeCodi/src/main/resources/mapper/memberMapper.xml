@@ -91,7 +91,10 @@
 	
 	<!-- 탈퇴 이력 확인 -->
 	<select id="checkStatus" parameterType="String" resultType="String">
-		select status from tbl_member where userid = #{userid}
+		select 
+			status from tbl_member 
+		where 
+			userid = #{userid}
 	</select>
 	
 	

@@ -158,7 +158,8 @@ public class Member {				//회원
 				+ ", phonenumber1=" + phonenumber1 + ", phonenumber2=" + phonenumber2 + ", phonenumber3=" + phonenumber3
 				+ ", postcode=" + postcode + ", address_primary=" + address_primary + ", address_detail="
 				+ address_detail + ", email_id=" + email_id + ", email_domain=" + email_domain + ", m_verify="
-				+ m_verify + "]";
+				+ m_verify + ", status=" + status + "]";
 	}
+
 	
 }

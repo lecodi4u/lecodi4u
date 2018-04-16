@@ -64,20 +64,22 @@ public class MemberDAO {
 		 * @param userid
 		 * @return password
 		 */
-		public String login(String userid){
-			
-			System.out.println("---> login() 기능처리");
-			String password = "";
-			
-			try{
-				MemberMapper mapper = sqlsession.getMapper(MemberMapper.class);
-				password = mapper.login(userid);
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-			return password;
-		}
+   		public String login(String userid){
+            
+            System.out.println("---> login() 기능처리");
+            String password = "";
+            
+            try{
+               MemberMapper mapper = sqlsession.getMapper(MemberMapper.class);
+               password = mapper.login(userid);
+            }catch(Exception e){
+               e.printStackTrace();
+            }
+            return password;
+         }
 
+		
+		
 		/*
 		 * 
 		 * 인증 후 페이지 이동
@@ -132,15 +134,17 @@ public class MemberDAO {
 		 * @return
 		 */
 		public String checkStatus(String userid) {
-			String status = null;
-			try{
-				MemberMapper mapper = sqlsession.getMapper(MemberMapper.class);
-				status = mapper.checkStatus(userid);
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-			return status;
-		}
+			logger.info("---> checkStatus() 기능처리 :회원 상태");
+			
+		    String status = null;
+		     try{
+		        MemberMapper mapper = sqlsession.getMapper(MemberMapper.class);
+		        status = mapper.checkStatus(userid);
+		     }catch(Exception e){
+		        e.printStackTrace();
+		     }
+		     return status;
+		  }
 
 		
 		

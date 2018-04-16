@@ -105,7 +105,7 @@ input[type=submit]:HOVER{
 				<div class="find_footer">
 		<div class="find">
 		<a href="find" style="color: #ff9999;">아이디 및 비밀번호 찾기</a><br>
-		회원가입을 하시면 다양하고 특별한 혜택이 준비되어 있습니다. <a href="join" style="color: #ff9999;">Join</a>
+		회원가입을 하시면 다양하고 특별한 혜택이 준비되어 있습니다. <a href="agree" style="color: #ff9999;">Join</a>
 		</div>
 		</div>
 			</div>

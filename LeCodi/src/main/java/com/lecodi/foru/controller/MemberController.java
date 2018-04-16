@@ -190,27 +190,29 @@ public class MemberController {
 	 * @return main
 	 */
 	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public String login(String userid, String password, HttpSession session){
-		
-		String status = mdao.checkStatus(userid);
-		
-		if(status == null){		//없는 아이디
-			session.setAttribute("result", "없는 회원");
-		}else if(status.equals("N")){	//탈퇴한 유저
-			session.setAttribute("result", "탈퇴한 회원");
-		}else if(status.equals("Y")){	//현재 유저
-			
-			String checkPass = mdao.login(userid);
-			
-			if(checkPass.equals(password)){
-				session.setAttribute("loginId", userid);
-				return "redirect:../";
-			}else{	//비밀번호 일치X
-				session.setAttribute("result", "비밀번호 오류");
-			}
-		}
-		return "redirect:../member/login";
-	}
+	   public String login(String userid, String password, HttpSession session){
+	      
+	      String status = mdao.checkStatus(userid);
+	      
+	      if(status == null){      //없는 아이디
+	         session.setAttribute("result", "없는 회원");
+	         	System.out.println("111111");
+	      }else if(status.equals("n")){   //탈퇴한 유저
+	         session.setAttribute("result", "탈퇴한 회원");
+	         System.out.println("22222222222");
+	      }else if(status.equals("y")){   //현재 유저
+	    	  System.out.println("33333333333");
+	         String checkPass = mdao.login(userid);
+	         
+	         if(checkPass.equals(password)){
+	            session.setAttribute("loginId", userid);
+	            return "redirect:../";
+	         }else{   //비밀번호 일치X
+	            session.setAttribute("result", "비밀번호 오류");
+	         }
+	      }
+	      return "redirect:../member/login";
+	   }
 	
 	
 	/**
