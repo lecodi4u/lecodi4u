@@ -10,13 +10,13 @@
 	
 <style type="text/css">
 input[type='text'] {
-    background-image: url(../resources/image/user.png);
+    background-image: url(../resources/image/sponge.png);
     background-position: left;
     background-repeat: no-repeat;
 }
 
 input[type='password'] {
-    background-image: url(../resources/image/pw.png);
+    background-image: url(../resources/image/bo.png);
     background-position: left;
     background-repeat: no-repeat;
 }

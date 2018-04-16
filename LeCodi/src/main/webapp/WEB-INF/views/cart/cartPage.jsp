@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -372,15 +373,40 @@ a:hover {
 }
 	
 	</style>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+	<script src="https://clippingmagic.com/api/v1/ClippingMagic.js" type="text/javascript"></script>
 	<script type="text/javascript">
-	var check = false;
-
+	//이거 뭐였지 
+	$( document ).ready(function() {
+  // Handler for .ready() called.
+	var errorsArray = ClippingMagic.initialize({apiId: 123});
+	if (errorsArray.length > 0) alert("Sorry, your browser is missing some required features: \n\n " + errorsArray.join("\n "));
+	
+	ClippingMagic.edit({
+	    "images" : [ {
+	      "id" : 2345,
+	      "secret" : "image_secret"
+	    }, {
+	      "id" : 2346,
+	      "secret" : "image_secret2"
+	    } ],
+	    "locale" : "en-US"
+	  }, c
+  
+});
+	
+	
+	
+		
+	
+	
+	
 	function changeVal(el) {
 	  var qt = parseFloat(el.parent().children(".qt").html());
 	  var price = parseFloat(el.parent().children(".price").html());
 	  var eq = Math.round(price * qt * 100) / 100;
 	  
-	  el.parent().children(".full-price").html( eq + "€" );
+	  el.parent().children(".full-price").html( eq + "원" );
 	  
 	  changeTotal();			
 	}
@@ -469,7 +495,7 @@ a:hover {
 		<!-- 파라미터로 넘겨주기만 잘하면 되나? 전체주문이면 그 페이지에 있던 상품 전체를 넘겨주고 선택 주문일 경우는 체크박스로 선택된 상품 번호를 끝어다 넘겨주는 걸로 //그럼 주소가 다르게 들어가야 하나? -->
 			<header id="site-header">
 		<div class="container">
-			<h1>Shopping cart <span>[</span> <em><a href="https://codepen.io/tag/rodeo-007" target="_blank">CodePen Challange</a></em> <span class="last-span is-open">]</span></h1>
+			<h1>Shopping cart <span>[</span> <em><a href="https://codepen.io/tag/rodeo-007" target="_blank"></a></em> <span class="last-span is-open">]</span></h1>
 		</div>
 	</header>
 
@@ -481,16 +507,15 @@ a:hover {
 					<a class="remove">
 						<img src="http://www.astudio.si/preview/blockedwp/wp-content/uploads/2012/08/1.jpg" alt="">
 
-						<h3>Remove product</h3>
+						<h3>삭제</h3>
 					</a>
 				</header>
 
 				<div class="content">
 
-					<h1>Lorem ipsum</h1>
+					<h1>장바구니</h1>
 
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, numquam quis perspiciatis ea ad omnis provident laborum dolore in atque.
-
+					뭘 적지
 					<div title="You have selected this product to be shipped in the color yellow." style="top: 0" class="color yellow"></div>
 					<div style="top: 43px" class="type small">XXL</div>
 				</div>
@@ -501,11 +526,11 @@ a:hover {
 					<span class="qt-plus">+</span>
 
 					<h2 class="full-price">
-						29.98€
+						29000원
 					</h2>
 
 					<h2 class="price">
-						14.99€
+						15000원
 					</h2>
 				</footer>
 			</article>
@@ -515,15 +540,15 @@ a:hover {
 					<a class="remove">
 						<img src="http://www.astudio.si/preview/blockedwp/wp-content/uploads/2012/08/3.jpg" alt="">
 
-						<h3>Remove product</h3>
+						<h3>삭제</h3>
 					</a>
 				</header>
 
 				<div class="content">
 
-					<h1>Lorem ipsum dolor</h1>
+					<h1>장바구니1</h1>
 
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, numquam quis perspiciatis ea ad omnis provident laborum dolore in atque.
+					아이신나
 
 					<div title="You have selected this product to be shipped in the color red." style="top: 0" class="color red"></div>
 					<div title="You have selected this product to be shipped sized Small."  style="top: 43px" class="type small">Small</div>
@@ -536,11 +561,11 @@ a:hover {
 					<span class="qt-plus">+</span>
 
 					<h2 class="full-price">
-						79.99€
+						70000원
 					</h2>
 
 					<h2 class="price">
-						79.99€
+						70000원
 					</h2>
 				</footer>
 			</article>
@@ -550,15 +575,15 @@ a:hover {
 					<a class="remove">
 						<img src="http://www.astudio.si/preview/blockedwp/wp-content/uploads/2012/08/5.jpg" alt="">
 
-						<h3>Remove product</h3>
+						<h3>삭제</h3>
 					</a>
 				</header>
 
 				<div class="content">
 
-					<h1>Lorem ipsum dolor ipsdu</h1>
+					<h1>장바구니2</h1>
 
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, numquam quis perspiciatis ea ad omnis provident laborum dolore in atque.
+					아이신나2.
 
 					<div title="You have selected this product to be shipped in the color blue." style="top: 0" class="color blue"></div>
 					<div style="top: 43px" class="type small">Large</div>
@@ -571,11 +596,11 @@ a:hover {
 					<span class="qt-plus">+</span>
 
 					<h2 class="full-price">
-						53.99€
+						50000원
 					</h2>
 
 					<h2 class="price">
-						17.99€
+						17000원
 					</h2>
 				</footer>
 			</article>
@@ -588,19 +613,32 @@ a:hover {
 		<div class="container clearfix">
 
 			<div class="left">
-				<h2 class="subtotal">Subtotal: <span>163.96</span>€</h2>
-				<h3 class="tax">Taxes (5%): <span>8.2</span>€</h3>
-				<h3 class="shipping">Shipping: <span>5.00</span>€</h3>
+				<h2 class="subtotal">총합: <span>16000원</span></h2>
+				<h3 class="tax">부가세 (5%): <span>800원</span></h3>
+				<h3 class="shipping">Shipping: <span>3000원</span></h3>
 			</div>
 
 			<div class="right">
-				<h1 class="total">Total: <span>177.16</span>€</h1>
-				<a class="btn">Checkout</a>
+				<h1 class="total">합계: <span>17000원</span></h1>
+				<a class="btn">체크아웃</a>
 			</div>
 
 		</div>
 	</footer>
-		<a href="order/orderForm">전체 주문하기</a> <a href="order/orderForm">선택 상품 주문하기</a> <a href="emptyCart">장바구니 비우기</a> <a href="deleteGoods">선택 삭제</a> <a href="./">쇼핑 계속하기</a>
+	<button onclick="myFunction()">Click me</button>
+	
+		<div style="text-align: center;">
+		<a href="order/orderForm">전체 주문하기</a>
+		<br> 
+		<a href="order/orderForm">선택 상품 주문하기</a> 
+		<br>
+		<a href="emptyCart">장바구니 비우기</a> 
+		<br>
+		<a href="deleteGoods">선택 삭제</a> 
+		<br>
+		<a href="./">쇼핑 계속하기</a>
+		<br>
+		</div>
 		<jsp:include page="../footer.jsp"></jsp:include>
 	</body>
 </html>

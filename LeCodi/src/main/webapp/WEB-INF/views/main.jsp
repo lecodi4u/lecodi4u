@@ -520,8 +520,8 @@
 		
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="codiTool" class ="main_category"><span class="glyphicon glyphicon-user"></span> codiTool</a></li>
-        <li><a href="cart/cartPage" class ="main_category"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+        <li><a href="codi" class ="main_category"><span class="glyphicon glyphicon-user"></span> codiTool</a></li>
+        <li><a href="cart" class ="main_category"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
       </ul>
     </div>
   </div>
