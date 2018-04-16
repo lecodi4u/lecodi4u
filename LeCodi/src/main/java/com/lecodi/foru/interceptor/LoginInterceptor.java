@@ -15,7 +15,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	private static final Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
 
 	//콘트롤러의 메서드 실행 전에 처리
-	@Override
+	/*@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		
@@ -32,6 +32,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		}
 		//로그인 된 경우 요청한 경로로 진행
 		return super.preHandle(request, response, handler);
-	}
+	}*/
 
 }

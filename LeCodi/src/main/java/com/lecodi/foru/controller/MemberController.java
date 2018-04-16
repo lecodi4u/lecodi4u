@@ -196,9 +196,9 @@ public class MemberController {
 		
 		if(status == null){		//없는 아이디
 			session.setAttribute("result", "없는 회원");
-		}else if(status.equals("N")){	//탈퇴한 유저
+		}else if(status.equals("n")){	//탈퇴한 유저
 			session.setAttribute("result", "탈퇴한 회원");
-		}else if(status.equals("Y")){	//현재 유저
+		}else if(status.equals("y")){	//현재 유저
 			
 			String checkPass = mdao.login(userid);
 			

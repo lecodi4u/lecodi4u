@@ -20,7 +20,32 @@
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" /> 
 <!-- 3.폰트아이콘용 CSS --> 
 <style type="text/css"> 
+<<<<<<< HEAD
 
+=======
+a:link {
+    color: black;
+     text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+    color: black;
+     text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+    color: black;
+     text-decoration: none;
+}
+
+/* selected link */
+a:active {
+    color: blue;
+     text-decoration: none;
+}
+>>>>>>> hap
 
 .navbar-toggler{
 	border-bottom: none;
@@ -116,6 +141,7 @@
   </div>
 </div>
       <div class="container-fluid">
+<<<<<<< HEAD
   
   </div>
     </div>
@@ -123,6 +149,15 @@
   <nav class="navbar navbar-inverse bg-inverse">
   <!--  -->
   
+=======
+  
+  </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-inverse bg-inverse">
+  <!--  -->
+  
+>>>>>>> hap
       <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
@@ -137,6 +172,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
 		
+<<<<<<< HEAD
   	 	 <!-- <li><a href="board/csc">Customer Center</a> </li> -->
   	 	 <li><a class = "main_category" href="<c:url value= '../board/csc'/>">Customer Center</a> </li>
   	 	 <!-- <li><a href="member/join">Join</a></li> -->
@@ -149,6 +185,19 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#" class = "main_category"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
         <li><a href="#" class = "main_category"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+=======
+  	 	 
+  	 	 <li><a class = "main_category" href="<c:url value= '../board/csc'/>">Customer Center</a> </li>
+  	 	
+  	 	<li><a class = "main_category" href="<c:url value= '../member/agree'/>">Join</a> </li>
+  	 
+  	 	<li><a class = "main_category" href="<c:url value= '../member/login'/>">Login</a> </li>
+  	 	
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="<c:url value= '../codi'/>" class = "main_category"><span class="glyphicon glyphicon-user"></span> Codi Tool</a></li>
+        <li><a href="<c:url value= '../cart'/>" class = "main_category"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+>>>>>>> hap
       </ul>
     </div>
   </nav>
