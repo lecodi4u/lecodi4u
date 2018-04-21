@@ -6,9 +6,11 @@
 	<typeAliases>
 		<typeAlias type="com.lecodi.foru.vo.Member" alias="member" />
 		<typeAlias type="com.lecodi.foru.vo.Board" alias="board" />
+		<typeAlias type="com.lecodi.foru.vo.Cart" alias="cart"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/memberMapper.xml" />
 		<mapper resource="mapper/boardMapper.xml" />
+		<mapper resource="mapper/cartMapper.xml"/>
 	</mappers>
 </configuration>

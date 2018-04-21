@@ -11,5 +11,10 @@
 		insert into qna(title, context, userid, boardnum) values (#{title}, #{context}, #{userid}, seq_qna.nextval)
 	</insert>
 	
+	<!-- 공지사항 리스트 가져오기 -->
+	<select id="getList" resultType="board">
+		select * from notice
+	</select>
+	
 	
 </mapper>

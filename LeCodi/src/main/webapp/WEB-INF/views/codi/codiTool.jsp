@@ -8,8 +8,9 @@
 		<title>codi</title>
 	</head>
 	<body>
-	<jsp:include page="header.jsp"></jsp:include>
+	<jsp:include page="../header.jsp"></jsp:include>
 		<h3>코디 페이지</h3>
-	<jsp:include page="footer.jsp"></jsp:include>	
+		<a href="codi/upload">이미지 업로드</a>
+	<jsp:include page="../footer.jsp"></jsp:include>	
 	</body>
 </html>

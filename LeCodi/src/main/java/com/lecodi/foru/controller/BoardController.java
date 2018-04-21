@@ -1,5 +1,7 @@
 package com.lecodi.foru.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +33,8 @@ public class BoardController {
 	 * 공지사항에 저장된 글 불러와 페이지로 전송
 	 */
 	@RequestMapping(value = "notice", method = RequestMethod.GET)
-	public String notice(){
+	public String notice(HttpSession session){
+		ArrayList<Board> noticeList = bdao.getList();
 		return "board/notice";
 	}
 	

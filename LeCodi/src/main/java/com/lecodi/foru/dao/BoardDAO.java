@@ -1,5 +1,7 @@
 package com.lecodi.foru.dao;
 
+import java.util.ArrayList;
+
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +28,17 @@ public class BoardDAO {
 			e.printStackTrace();
 		}
 		return result;
+	}
+
+	public ArrayList<Board> getList() {
+		ArrayList<Board> noticeList = null;
+		BoardMapper mapper = session.getMapper(BoardMapper.class);
+		try{
+			noticeList = mapper.getList();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return noticeList;
 	}
 	
 }

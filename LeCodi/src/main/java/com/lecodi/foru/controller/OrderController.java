@@ -1,14 +1,23 @@
 package com.lecodi.foru.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.lecodi.foru.dao.CartDAO;
+import com.lecodi.foru.vo.Cart;
+
 @Controller
 @RequestMapping("order")
 public class OrderController {
+	
+	@Autowired
+	CartDAO cdao;
 	
 	/**
 	 * 전체 주문하기
@@ -17,9 +26,9 @@ public class OrderController {
 	 */
 	@RequestMapping(value = "orderForm", method = RequestMethod.GET)
 	public String orderForm(HttpSession session){
-		if(session == null){	// 비로그인
-			return "order/checkMember";
-		}
+		String id = (String) session.getAttribute("loginId");
+		ArrayList<Cart> cartList = cdao.getList(id);
+		session.setAttribute("cartList", cartList);
 		return "order/orderForm";
 	}
 	
